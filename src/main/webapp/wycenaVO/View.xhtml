@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewWycenaVOTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewWycenaVOLabel_WId}"/>
+                    <h:outputText value="#{wycenaVOController.selected.WId}" title="#{bundle.ViewWycenaVOTitle_WId}"/>
+                    <h:outputText value="#{bundle.ViewWycenaVOLabel_WUserId}"/>
+                    <h:outputText value="#{wycenaVOController.selected.WUserId}" title="#{bundle.ViewWycenaVOTitle_WUserId}"/>
+                    <h:outputText value="#{bundle.ViewWycenaVOLabel_WDataWyceny}"/>
+                    <h:outputText value="#{wycenaVOController.selected.WDataWyceny}" title="#{bundle.ViewWycenaVOTitle_WDataWyceny}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewWycenaVOLabel_WDataObowiazywania}"/>
+                    <h:outputText value="#{wycenaVOController.selected.WDataObowiazywania}" title="#{bundle.ViewWycenaVOTitle_WDataObowiazywania}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewWycenaVOLabel_wNazwa}"/>
+                    <h:outputText value="#{wycenaVOController.selected.wNazwa}" title="#{bundle.ViewWycenaVOTitle_wNazwa}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{wycenaVOController.destroyAndView}" value="#{bundle.ViewWycenaVODestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewWycenaVOEditLink}"/>
+                <br />
+                <h:commandLink action="#{wycenaVOController.prepareCreate}" value="#{bundle.ViewWycenaVOCreateLink}" />
+                <br />
+                <h:commandLink action="#{wycenaVOController.prepareList}" value="#{bundle.ViewWycenaVOShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewWycenaVOIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

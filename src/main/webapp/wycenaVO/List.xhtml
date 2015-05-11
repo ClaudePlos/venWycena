@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListWycenaVOTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListWycenaVOEmpty}" rendered="#{wycenaVOController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{wycenaVOController.items.rowCount > 0}">
+                    <h:outputText value="#{wycenaVOController.pagination.pageFirstItem + 1}..#{wycenaVOController.pagination.pageLastItem + 1}/#{wycenaVOController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{wycenaVOController.previous}" value="#{bundle.Previous} #{wycenaVOController.pagination.pageSize}" rendered="#{wycenaVOController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{wycenaVOController.next}" value="#{bundle.Next} #{wycenaVOController.pagination.pageSize}" rendered="#{wycenaVOController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{wycenaVOController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListWycenaVOTitle_WId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.WId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListWycenaVOTitle_WUserId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.WUserId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListWycenaVOTitle_WDataWyceny}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.WDataWyceny}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListWycenaVOTitle_WDataObowiazywania}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.WDataObowiazywania}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListWycenaVOTitle_wNazwa}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.wNazwa}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{wycenaVOController.prepareView}" value="#{bundle.ListWycenaVOViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{wycenaVOController.prepareEdit}" value="#{bundle.ListWycenaVOEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{wycenaVOController.destroy}" value="#{bundle.ListWycenaVODestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{wycenaVOController.prepareCreate}" value="#{bundle.ListWycenaVOCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListWycenaVOIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

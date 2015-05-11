@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditWycenaVOTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditWycenaVOLabel_WId}" for="WId" />
+                    <h:inputText id="WId" value="#{wycenaVOController.selected.WId}" title="#{bundle.EditWycenaVOTitle_WId}" required="true" requiredMessage="#{bundle.EditWycenaVORequiredMessage_WId}"/>
+                    <h:outputLabel value="#{bundle.EditWycenaVOLabel_WUserId}" for="WUserId" />
+                    <h:inputText id="WUserId" value="#{wycenaVOController.selected.WUserId}" title="#{bundle.EditWycenaVOTitle_WUserId}" />
+                    <h:outputLabel value="#{bundle.EditWycenaVOLabel_WDataWyceny}" for="WDataWyceny" />
+                    <h:inputText id="WDataWyceny" value="#{wycenaVOController.selected.WDataWyceny}" title="#{bundle.EditWycenaVOTitle_WDataWyceny}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditWycenaVOLabel_WDataObowiazywania}" for="WDataObowiazywania" />
+                    <h:inputText id="WDataObowiazywania" value="#{wycenaVOController.selected.WDataObowiazywania}" title="#{bundle.EditWycenaVOTitle_WDataObowiazywania}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditWycenaVOLabel_wNazwa}" for="wNazwa" />
+                    <h:inputText id="wNazwa" value="#{wycenaVOController.selected.wNazwa}" title="#{bundle.EditWycenaVOTitle_wNazwa}" />
+                </h:panelGrid>
+                <h:commandLink action="#{wycenaVOController.update}" value="#{bundle.EditWycenaVOSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditWycenaVOViewLink}"/>
+                <br />
+                <h:commandLink action="#{wycenaVOController.prepareList}" value="#{bundle.EditWycenaVOShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditWycenaVOIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
