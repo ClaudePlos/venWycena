@@ -21,7 +21,7 @@ import com.vaadin.ui.TextField;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.ejb.EJB;
-import pl.MyUI;
+import pl.venwycena.MyUI;
 import pl.venwycena.models.Wyceny;
 import pl.venwycena.service.WycenaFacade;
 import pl.venwycena.models.WycenyDane;

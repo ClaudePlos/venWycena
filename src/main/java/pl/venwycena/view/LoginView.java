@@ -24,7 +24,7 @@ import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.themes.Reindeer;
 import javax.ejb.EJB;
-import pl.MyUI;
+import pl.venwycena.MyUI;
 import pl.venwycena.models.Users;
 import pl.venwycena.service.UsersFacade;
 

@@ -23,7 +23,7 @@ import com.vaadin.ui.VerticalLayout;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import javax.ejb.EJB;
-import pl.MyUI;
+import pl.venwycena.MyUI;
 import pl.venwycena.models.Wyceny;
 import pl.venwycena.models.WycenyDane;
 import pl.venwycena.service.WycenaFacade;
