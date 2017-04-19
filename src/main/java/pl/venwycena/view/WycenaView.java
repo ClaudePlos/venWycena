@@ -12,7 +12,6 @@ import com.vaadin.shared.ui.label.ContentMode;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.CustomComponent;
-import com.vaadin.ui.Field;
 import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Notification;
@@ -21,9 +20,8 @@ import com.vaadin.ui.PopupDateField;
 import com.vaadin.ui.TextField;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 import javax.ejb.EJB;
-import pl.venwycena.MyUI;
+import pl.MyUI;
 import pl.venwycena.models.Wyceny;
 import pl.venwycena.service.WycenaFacade;
 import pl.venwycena.models.WycenyDane;
@@ -60,14 +58,68 @@ public class WycenaView extends CustomComponent implements View{
     
     TextField ilPosDzien6;
     
+    TextField ilPos1;
+    TextField ilPos2;
+    TextField ilPos3;
+    TextField ilPos4;
+    TextField ilPos5;
+    
+    TextField ilOsZy1;
+    TextField ilOsZy2;
+    TextField ilOsZy3;
+    TextField ilOsZy4;
+    TextField ilOsZy5;
+    TextField ilOsZy6;
+    
+    TextField gdzieUsluga8;
+    TextField ilKmLaMie9;
+   
+    
     OptionGroup opKalorycznoscPosilkow;
     
+    TextField ilCzesciBudynki;
+    
     TextField ilSrDziennaMieszDzieci16;
+    
+    TextField ilDodSkla1;
+    TextField ilDodSkla2;
+    TextField ilDodSkla3;
+    TextField ilDodSkla4;
+    TextField ilDodSkla5;
+    
+    
     
     String p04key1 = "N";
     String p04key2 = "N";
     String p04key3 = "N";
     String p04key4 = "N";
+    
+    String p10key1 = "N";
+    String p10key2 = "N";
+    String p10key3 = "N";
+    
+    String p12key1 = "N";
+    String p12key2 = "N";
+    
+    String p13key1 = "N";
+    String p13key2 = "N";
+    
+    String p14key1 = "N";
+    String p14key2 = "N";
+    String p14key3 = "N";
+    
+    String p15key1 = "N";
+    String p15key2 = "N";
+    
+    String p18key1 = "N";
+    String p18key2 = "N";
+    
+    String p19key1 = "N";
+    String p19key2 = "N";
+    
+    String p20key1 = "N";
+    String p20key2 = "N";
+    
     
      public WycenaView() {
          
@@ -242,19 +294,19 @@ public class WycenaView extends CustomComponent implements View{
         ilPosDzien6.setStyleName("dashing");
         form.addComponent(ilPosDzien6);
         
-        TextField ilPos1 = new TextField("a. 1 posiłek dziennie (obiad)");
+        ilPos1 = new TextField("a. 1 posiłek dziennie (obiad)");
         ilPos1.setValue("0");
         form.addComponent(ilPos1);
-        TextField ilPos2 = new TextField("b. 2 posiłki dziennie (śniadanie, obiad)");
+        ilPos2 = new TextField("b. 2 posiłki dziennie (śniadanie, obiad)");
         ilPos2.setValue("0");
         form.addComponent(ilPos2);
-        TextField ilPos3 = new TextField("c. 3 posiłki dziennie (śniadanie, obiad, kolacja)");
+        ilPos3 = new TextField("c. 3 posiłki dziennie (śniadanie, obiad, kolacja)");
         ilPos3.setValue("0");
         form.addComponent(ilPos3);
-        TextField ilPos4 = new TextField("d. 4 posiłki dziennie (śniadanie, II śniadanie, obiad, kolacja) ");
+        ilPos4 = new TextField("d. 4 posiłki dziennie (śniadanie, II śniadanie, obiad, kolacja) ");
         ilPos4.setValue("0");
         form.addComponent(ilPos4);
-        TextField ilPos5 = new TextField("e. 5 posiłków dziennie (śniadanie, II śniadanie, obiad, podwieczorek, kolacja) ");
+        ilPos5 = new TextField("e. 5 posiłków dziennie (śniadanie, II śniadanie, obiad, podwieczorek, kolacja) ");
         ilPos5.setValue("0");
         form.addComponent(ilPos5);
         
@@ -272,22 +324,22 @@ public class WycenaView extends CustomComponent implements View{
         form.addComponent(ilOsZywionych7);
      
         
-        TextField ilOsZy1 = new TextField("a. Śniadania");
+        ilOsZy1 = new TextField("a. Śniadania");
         ilOsZy1.setValue("0");
         form.addComponent(ilOsZy1);
-        TextField ilOsZy2 = new TextField("b. II Śniadania");
+        ilOsZy2 = new TextField("b. II Śniadania");
         ilOsZy2.setValue("0");
         form.addComponent(ilOsZy2);
-        TextField ilOsZy3 = new TextField("c. Zupy");
+        ilOsZy3 = new TextField("c. Zupy");
         ilOsZy3.setValue("0");
         form.addComponent(ilOsZy3);
-        TextField ilOsZy4 = new TextField("d. Obiady");
+        ilOsZy4 = new TextField("d. Obiady");
         ilOsZy4.setValue("0");
         form.addComponent(ilOsZy4);
-        TextField ilOsZy5 = new TextField("e. Podwieczorki");
+        ilOsZy5 = new TextField("e. Podwieczorki");
         ilOsZy5.setValue("0");
         form.addComponent(ilOsZy5);
-        TextField ilOsZy6 = new TextField("f. Kolacje");
+        ilOsZy6 = new TextField("f. Kolacje");
         ilOsZy6.setValue("0");
         form.addComponent(ilOsZy6);
         
@@ -295,7 +347,7 @@ public class WycenaView extends CustomComponent implements View{
         
         // 8.
         ////Gdzie odbywać się ma wykonanie usługi ? Proszę podać kod pocztowy
-        TextField gdzieUsluga8 = new TextField("8. Gdzie odbywać się ma wykonanie usługi ? Proszę podać kod pocztowy:");
+        gdzieUsluga8 = new TextField("8. Gdzie odbywać się ma wykonanie usługi ? Proszę podać kod pocztowy:");
         gdzieUsluga8.setValue("00-000");
         form.addComponent(gdzieUsluga8);   
         
@@ -304,7 +356,7 @@ public class WycenaView extends CustomComponent implements View{
         
         // 9.
         //Czy usługa ma być realizowana w jednym, czy w kilku oddzielnych miejscach? Jeśli tak – proszę wpisać łączną ilość kilometrów dzielącą te miejsca od siebie.
-        TextField ilKmLaMie9 = new TextField("9. Czy usługa ma być realizowana w jednym, czy w kilku oddzielnych miejscach?\n"
+        ilKmLaMie9 = new TextField("9. Czy usługa ma być realizowana w jednym, czy w kilku oddzielnych miejscach?\n"
                 + "Jeśli tak – proszę wpisać łączną ilość kilometrów dzielącą te miejsca od siebie.");
         ilKmLaMie9.setValue("0");
         form.addComponent(ilKmLaMie9);  
@@ -321,10 +373,34 @@ public class WycenaView extends CustomComponent implements View{
         opIleRazyDowPosilki.setItemCaption(2, "3 razy dziennie (oddzielnie śniadanie z ew. II śniadaniem – obiad z ew. podwieczorek – kolacja)");
         form.addComponent(opIleRazyDowPosilki);
         
+        opIleRazyDowPosilki.addValueChangeListener( new Property.ValueChangeListener() {
+
+            @Override
+            public void valueChange(Property.ValueChangeEvent event) {
+               final String valueString = String.valueOf(event.getProperty().getValue());
+               
+               if ( valueString.contains("0") )
+                   p10key1 = "T";
+               else
+                   p10key1 = "N";
+               
+               if ( valueString.contains("1")  )
+                   p10key2 = "T";
+               else
+                   p10key2 = "N";
+               
+               if ( valueString.contains("2")  )
+                   p10key3 = "T";
+               else
+                   p10key3 = "N";
+            }
+        });
+        
+        
         form.addComponent(new Label("<br><br><br><br><br>",Label.CONTENT_XHTML));
         
         /// 11.
-        TextField ilCzesciBudynki= new TextField("11. Ile niezależnych części budynku obejmuje zamówienie? (oddziały, sekcje, piętra itp. ).");
+        ilCzesciBudynki= new TextField("11. Ile niezależnych części budynku obejmuje zamówienie? (oddziały, sekcje, piętra itp. ).");
         ilCzesciBudynki.setValue("0");
         form.addComponent(ilCzesciBudynki);  
         
@@ -339,6 +415,25 @@ public class WycenaView extends CustomComponent implements View{
         opSpDystrybucji.setItemCaption(1, "Tace termoizolacyjne");
         form.addComponent(opSpDystrybucji);
         
+        opSpDystrybucji.addValueChangeListener( new Property.ValueChangeListener() {
+
+            @Override
+            public void valueChange(Property.ValueChangeEvent event) {
+               final String valueString = String.valueOf(event.getProperty().getValue());
+               
+               if ( valueString.contains("0") )
+                   p12key1 = "T";
+               else
+                   p12key1 = "N";
+               
+               if ( valueString.contains("1")  )
+                   p12key2 = "T";
+               else
+                   p12key2 = "N";
+
+            }
+        });
+        
         form.addComponent(new Label("<br><br><br><br><br>",Label.CONTENT_XHTML));
         
         /// 13.
@@ -349,6 +444,25 @@ public class WycenaView extends CustomComponent implements View{
         opSpDostarczania.addItem(1);
         opSpDostarczania.setItemCaption(1, "Indywidualnie");
         form.addComponent(opSpDostarczania);
+        
+        opSpDostarczania.addValueChangeListener( new Property.ValueChangeListener() {
+
+            @Override
+            public void valueChange(Property.ValueChangeEvent event) {
+               final String valueString = String.valueOf(event.getProperty().getValue());
+               
+               if ( valueString.contains("0") )
+                   p13key1 = "T";
+               else
+                   p13key1 = "N";
+               
+               if ( valueString.contains("1")  )
+                   p13key2 = "T";
+               else
+                   p13key2 = "N";
+
+            }
+        });
         
         form.addComponent(new Label("<br><br><br><br><br>",Label.CONTENT_XHTML));
        
@@ -363,6 +477,30 @@ public class WycenaView extends CustomComponent implements View{
         opKalorycznoscPosilkow.setValidationVisible(true);
         form.addComponent(opKalorycznoscPosilkow);
         
+        opKalorycznoscPosilkow.addValueChangeListener( new Property.ValueChangeListener() {
+
+            @Override
+            public void valueChange(Property.ValueChangeEvent event) {
+               final String valueString = String.valueOf(event.getProperty().getValue());
+               
+               if ( valueString.contains("0") )
+                   p14key1 = "T";
+               else
+                   p14key1 = "N";
+               
+               if ( valueString.contains("1")  )
+                   p14key2 = "T";
+               else
+                   p14key2 = "N";
+               
+               if ( valueString.contains("2")  )
+                   p14key3 = "T";
+               else
+                   p14key3 = "N";
+
+            }
+        });
+        
         form.addComponent(new Label("<br><br><br><br><br>",Label.CONTENT_XHTML));
         
         /// 15.
@@ -372,6 +510,25 @@ public class WycenaView extends CustomComponent implements View{
         opPosilkiDlaDzieci.addItem(1);
         opPosilkiDlaDzieci.setItemCaption(1, "Nie");
         opPosilkiDlaDzieci.select(1);
+        
+        opPosilkiDlaDzieci.addValueChangeListener( new Property.ValueChangeListener() {
+
+            @Override
+            public void valueChange(Property.ValueChangeEvent event) {
+               final String valueString = String.valueOf(event.getProperty().getValue());
+               
+               if ( valueString.contains("0") )
+                   p15key1 = "T";
+               else
+                   p15key1 = "N";
+               
+               if ( valueString.contains("1")  )
+                   p15key2 = "T";
+               else
+                   p15key2 = "N";
+
+            }
+        });
         
         
         opPosilkiDlaDzieci.addValueChangeListener( new Property.ValueChangeListener() {
@@ -413,19 +570,19 @@ public class WycenaView extends CustomComponent implements View{
         
         form.addComponent(ilDodSkladniki17);
         
-        TextField ilDodSkla1 = new TextField("a. Dodatkowy jogurt naturalny )");
+        ilDodSkla1 = new TextField("a. Dodatkowy jogurt naturalny )");
         ilDodSkla1.setValue("0");
         form.addComponent(ilDodSkla1);
-        TextField ilDodSkla2 = new TextField("b. Kleik ryżowy");
+        ilDodSkla2 = new TextField("b. Kleik ryżowy");
         ilDodSkla2.setValue("0");
         form.addComponent(ilDodSkla2);
-        TextField ilDodSkla3 = new TextField("c. Kisiel");
+        ilDodSkla3 = new TextField("c. Kisiel");
         ilDodSkla3.setValue("0");
         form.addComponent(ilDodSkla3);
-        TextField ilDodSkla4 = new TextField("d. Suchary");
+        ilDodSkla4 = new TextField("d. Suchary");
         ilDodSkla4.setValue("0");
         form.addComponent(ilDodSkla4);
-        TextField ilDodSkla5 = new TextField("e. Kaszki mleczne dla dzieci");
+        ilDodSkla5 = new TextField("e. Kaszki mleczne dla dzieci");
         ilDodSkla5.setValue("0");
         form.addComponent(ilDodSkla5);
         
@@ -440,6 +597,25 @@ public class WycenaView extends CustomComponent implements View{
         opUtylizacjiaOdpa.select(0);
         form.addComponent(opUtylizacjiaOdpa);
         
+        opUtylizacjiaOdpa.addValueChangeListener( new Property.ValueChangeListener() {
+
+            @Override
+            public void valueChange(Property.ValueChangeEvent event) {
+               final String valueString = String.valueOf(event.getProperty().getValue());
+               
+               if ( valueString.contains("0") )
+                   p18key1 = "T";
+               else
+                   p18key1 = "N";
+               
+               if ( valueString.contains("1")  )
+                   p18key2 = "T";
+               else
+                   p18key2 = "N";
+
+            }
+        });
+        
         form.addComponent(new Label("<br><br><br><br><br>",Label.CONTENT_XHTML));
         
         // 19.
@@ -451,6 +627,25 @@ public class WycenaView extends CustomComponent implements View{
         opUtylizacjiaOdpaKomun.select(0);
         form.addComponent(opUtylizacjiaOdpaKomun);
         
+        opUtylizacjiaOdpaKomun.addValueChangeListener( new Property.ValueChangeListener() {
+
+            @Override
+            public void valueChange(Property.ValueChangeEvent event) {
+               final String valueString = String.valueOf(event.getProperty().getValue());
+               
+               if ( valueString.contains("0") )
+                   p19key1 = "T";
+               else
+                   p19key1 = "N";
+               
+               if ( valueString.contains("1")  )
+                   p19key2 = "T";
+               else
+                   p19key2 = "N";
+
+            }
+        });
+        
         form.addComponent(new Label("<br><br><br><br><br>",Label.CONTENT_XHTML));
         
         // 20.
@@ -461,9 +656,29 @@ public class WycenaView extends CustomComponent implements View{
         opWlasnwJadlospisy.setItemCaption(1, "Nie");
         opWlasnwJadlospisy.select(0);
         form.addComponent(opWlasnwJadlospisy);
+        
+        opWlasnwJadlospisy.addValueChangeListener( new Property.ValueChangeListener() {
+
+            @Override
+            public void valueChange(Property.ValueChangeEvent event) {
+               final String valueString = String.valueOf(event.getProperty().getValue());
+               
+               if ( valueString.contains("0") )
+                   p20key1 = "T";
+               else
+                   p20key1 = "N";
+               
+               if ( valueString.contains("1")  )
+                   p20key2 = "T";
+               else
+                   p20key2 = "N";
+
+            }
+        });
          
         form.addComponent(new Label("<br><br><br><br><br>",Label.CONTENT_XHTML));
         
+        /// END
         
          Button wyslijWycene;
         wyslijWycene = new Button("Wyślij", new Button.ClickListener() {
@@ -474,7 +689,6 @@ public class WycenaView extends CustomComponent implements View{
                 String vSpr = "OK";
                 
                 Object p03 = opCzyWiecNizJednaDieta.getValue();
-                Object p04 = opWybDietSpec.getValue();
                 
                 Object p14 = opKalorycznoscPosilkow.getValue();
                 
@@ -518,12 +732,78 @@ public class WycenaView extends CustomComponent implements View{
                     wycDane.setD04( JSONp04 );
                     
                     wycDane.setD05( procIlUdz5.getValue() );
-
+                    
+                    //6.
+                    wycDane.setD06a( ilPos1.getValue() );
+                    wycDane.setD06b( ilPos2.getValue() );
+                    wycDane.setD06c( ilPos3.getValue() );
+                    wycDane.setD06d( ilPos4.getValue() );
+                    wycDane.setD06e( ilPos5.getValue() );
+                    
+                    //7.
+                    wycDane.setD07a( ilOsZy1.getValue() );
+                    wycDane.setD07b( ilOsZy2.getValue() );
+                    wycDane.setD07c( ilOsZy3.getValue() );
+                    wycDane.setD07d( ilOsZy4.getValue() );
+                    wycDane.setD07e( ilOsZy5.getValue() );
+                    wycDane.setD07f( ilOsZy6.getValue() );
+                    
+                    //8
+                    wycDane.setD08( gdzieUsluga8.getValue() );
+                            
+                    //9
+                    wycDane.setD09( ilKmLaMie9.getValue());
+                    
+                    //10
+                    String JSONp10 = "{\"key1\":\""+p10key1+"\",\"key2\":\""+p10key2+"\",\"key3\":\""+p10key3+"\"}";
+                    wycDane.setD10( JSONp10 );
+                    
+                    //11
+                    wycDane.setD11( ilCzesciBudynki.getValue());
+                    
+                    //12
+                    String JSONp12 = "{\"key1\":\""+p12key1+"\",\"key2\":\""+p12key2+"\"}";
+                    wycDane.setD12( JSONp12 );
+                    
+                    //13
+                    String JSONp13 = "{\"key1\":\""+p13key1+"\",\"key2\":\""+p13key2+"\"}";
+                    wycDane.setD13( JSONp13 );
+                    
+                    //14
+                    String JSONp14 = "{\"key1\":\""+p14key1+"\",\"key2\":\""+p14key2+"\",\"key3\":\""+p14key3+"\"}";
+                    wycDane.setD14( JSONp14 );
+                    
+                    //15
+                    String JSONp15 = "{\"key1\":\""+p15key1+"\",\"key2\":\""+p15key2+"\"}";
+                    wycDane.setD15( JSONp15 );
+                    
+                    //16
+                    wycDane.setD16( ilSrDziennaMieszDzieci16.getValue());
+                    
+                    //17
+                    wycDane.setD17a( ilDodSkla1.getValue() );
+                    wycDane.setD17b( ilDodSkla2.getValue() );
+                    wycDane.setD17c( ilDodSkla3.getValue() );
+                    wycDane.setD17d( ilDodSkla4.getValue() );
+                    wycDane.setD17e( ilDodSkla5.getValue() );
+                    
+                    //18
+                    String JSONp18 = "{\"key1\":\""+p18key1+"\",\"key2\":\""+p18key2+"\"}";
+                    wycDane.setD18( JSONp18 );
+                    
+                    //19
+                    String JSONp19 = "{\"key1\":\""+p19key1+"\",\"key2\":\""+p19key2+"\"}";
+                    wycDane.setD19( JSONp19 );
+                    
+                    //20
+                    String JSONp20 = "{\"key1\":\""+p20key1+"\",\"key2\":\""+p20key2+"\"}";
+                    wycDane.setD20( JSONp20 );
+                    
                     Wyceny w = wf.zapiszWycene(wycena,wycDane );
                     
                     if ( w != null )
                     {
-                        getUI().getNavigator().navigateTo(SimpleLoginMainView.NAME);
+                        getUI().getNavigator().navigateTo(MainView.NAME);
                     }
                 }
                 

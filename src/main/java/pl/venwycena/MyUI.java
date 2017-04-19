@@ -14,8 +14,8 @@ import com.vaadin.ui.UI;
 import javax.ejb.EJB;
 import pl.venwycena.models.Users;
 import pl.venwycena.service.UsersFacade;
-import pl.venwycena.view.SimpleLoginMainView;
-import pl.venwycena.view.SimpleLoginView;
+import pl.venwycena.view.MainView;
+import pl.venwycena.view.LoginView;
 import pl.venwycena.view.WycenaView;
 
 /**
@@ -55,12 +55,12 @@ public class MyUI extends UI {
         //
         // The initial log view where the user can login to the application
         //
-        getNavigator().addView(SimpleLoginView.NAME, SimpleLoginView.class);//
+        getNavigator().addView(LoginView.NAME, LoginView.class);//
 
         //
         // Add the main view of the application
         //
-        getNavigator().addView(SimpleLoginMainView.NAME, SimpleLoginMainView.class);
+        getNavigator().addView(MainView.NAME, MainView.class);
         
         getNavigator().addView(WycenaView.NAME, WycenaView.class);
 
@@ -75,12 +75,12 @@ public class MyUI extends UI {
 
                 // Check if a user has logged in
                 boolean isLoggedIn = getSession().getAttribute("user") != null;
-                boolean isLoginView = event.getNewView() instanceof SimpleLoginView;
+                boolean isLoginView = event.getNewView() instanceof LoginView;
 
                 if (!isLoggedIn && !isLoginView) {
                     // Redirect to login view always if a user has not yet
                     // logged in
-                    getNavigator().navigateTo(SimpleLoginView.NAME);
+                    getNavigator().navigateTo(LoginView.NAME);
                     return false;
 
                 } else if (isLoggedIn && isLoginView) {

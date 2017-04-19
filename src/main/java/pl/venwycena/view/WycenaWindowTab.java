@@ -52,6 +52,7 @@ public class WycenaWindowTab extends Window {
         
         WycenyDane wd = (WycenyDane) uf.pobierzWycenyDane( _wycena.getWId() );
         
+        
         //1.
         TextField d01 = new TextField("1. Ilość dni usługi:");
         d01.setValue( wd.getD01() );
@@ -137,6 +138,8 @@ public class WycenaWindowTab extends Window {
         d05.setValue( wd.getD05() + "%" );
         d05.setEnabled(false);
         content.addComponent(d05);
+        
+        
         
         
         
