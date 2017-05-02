@@ -8,6 +8,7 @@
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ven_wycena?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
       <property name="javax.persistence.jdbc.password" value="oracle"/>
+      <property name="hibernate.hbm2ddl.auto" value="update"/>
     </properties>
   </persistence-unit>
 </persistence>

@@ -47,9 +47,10 @@ public class UsersFacade  {
     public Users sprawdzenieLogowania( Users user )
     {
         Users us = new Users();
-                
+         
+        // trzeba mala litera users bo w linuksie jest problem, ze nie widzi tabeli
        try{
-          Query query = em.createNativeQuery("SELECT * FROM Users WHERE u_Login = '" + user.getULogin() + "' and u_Password = '" + user.getUPassword() + "'");
+          Query query = em.createNativeQuery("SELECT * FROM users WHERE u_Login = '" + user.getULogin() + "' and u_Password = '" + user.getUPassword() + "';");
           
           Object[] us1 = (Object[]) query.getSingleResult();
            
