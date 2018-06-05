@@ -117,6 +117,7 @@ public class MainView extends CustomComponent implements View {
 
             for ( Wyceny wyc : wyceny )
             {
+                wyc.setMailKtoZamawia( uf.getUser(wyc.getWUserId()).getUMail() );
                 tab.addItem( new Object[] { wyc.getWNazwa()
                         , formater.format( wyc.getWDataWyceny() ) 
                         , formater.format( wyc.getWDataObowiazywania() )

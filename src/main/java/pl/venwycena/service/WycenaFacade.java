@@ -36,9 +36,6 @@ public class WycenaFacade {
     
     private EntityManager em;
     
-    @Inject
-    UsersFacade uf = new UsersFacade();
-    
     public WycenaFacade() {
         em = emfInstance.createEntityManager();
     }
@@ -84,8 +81,6 @@ public class WycenaFacade {
            w.setWDataWyceny( (Date) o[2] );
            w.setWDataObowiazywania((Date) o[3] );
            w.setWNazwa( (String) o[4] );
-           Users user = uf.getUser( w.getWUserId() );
-           w.setMailKtoZamawia( user.getUMail() );
            wyceny.add(w);
         }
                      
