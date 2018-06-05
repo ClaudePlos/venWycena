@@ -8,6 +8,7 @@ package pl.venwycena.service;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -69,10 +70,12 @@ public class UsersFacade  {
     
     public void addUser ( String imie, String nazwisko, String login, String password )
     {
+        EntityTransaction t = em.getTransaction();
+        t.begin();
       
-            em.getTransaction().begin();
+           // em.getTransaction().begin();
 
-            em.createNativeQuery("INSERT INTO USERS (u_imie, u_nazwisko, u_login, u_password, u_mail, u_aktywny ) "
+            em.createNativeQuery("INSERT INTO users (u_imie, u_nazwisko, u_login, u_password, u_mail, u_aktywny ) "
                     + "VALUES ('"+imie+"'"
                     + ",'"+nazwisko+"'"
                     + ",'"+login+"'"
@@ -80,7 +83,8 @@ public class UsersFacade  {
                     + ",'"+login+"'"
                     + ",'T'"
                     + ")").executeUpdate();
-            em.getTransaction().commit();
+            //em.getTransaction().commit();
+        t.commit();
     }
     
 }
