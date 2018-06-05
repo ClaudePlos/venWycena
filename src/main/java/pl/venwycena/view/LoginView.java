@@ -18,6 +18,7 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.CustomComponent;
 import com.vaadin.ui.Image;
+import com.vaadin.ui.Label;
 import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
@@ -54,6 +55,9 @@ public class LoginView extends CustomComponent implements View,
         // create logo
         Image imgLogoVendi = new Image();
         imgLogoVendi.setSource(new ThemeResource("vendi_logo2.png"));
+        
+        Image imgLogoUE = new Image();
+        imgLogoUE.setSource(new ThemeResource("dol.jpg"));
 
         // Create the user input field
         user = new TextField("Login:");
@@ -85,11 +89,19 @@ public class LoginView extends CustomComponent implements View,
         fields.setSpacing(true);
     //   fields.setMargin(new MarginInfo(true, true, true, false));
         fields.setSizeUndefined();
+        
+        Label labSpacja = new Label(" ");
+        
+        Label labUE = new Label("Projekt współfinansowany ze środków Europejskiego Funduszu Rozwoju Regionalnego w ramach Programu Operacyjnego Innowacyjna Gospodarka");
 
         
-        VerticalLayout logo = new VerticalLayout( imgLogoVendi, fields );
+        VerticalLayout logo = new VerticalLayout( imgLogoVendi, fields, labSpacja, labUE, imgLogoUE );
         logo.setComponentAlignment(imgLogoVendi, Alignment.MIDDLE_CENTER);
         logo.setComponentAlignment(fields, Alignment.MIDDLE_CENTER);
+        logo.setComponentAlignment(labSpacja, Alignment.MIDDLE_CENTER);
+        logo.setComponentAlignment(labSpacja, Alignment.MIDDLE_CENTER);
+        logo.setComponentAlignment(labUE, Alignment.MIDDLE_CENTER);
+        logo.setComponentAlignment(imgLogoUE, Alignment.MIDDLE_CENTER);
         logo.setSpacing(true);
         logo.setSizeUndefined();
         // The view root layout
@@ -97,6 +109,7 @@ public class LoginView extends CustomComponent implements View,
         viewLayout.setSizeFull();
         viewLayout.setComponentAlignment(logo, Alignment.MIDDLE_CENTER);
         viewLayout.setStyleName(Reindeer.LAYOUT_BLUE);
+
         setCompositionRoot(viewLayout);
     }
 

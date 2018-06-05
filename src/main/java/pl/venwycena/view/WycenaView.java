@@ -160,7 +160,7 @@ public class WycenaView extends CustomComponent implements View{
               Date dataOdD = (Date) dataOd.getValue();
               Date dataDoD = (Date) dataDo.getValue();
               ilDniInt  = (int)( (dataDoD.getTime() - dataOdD.getTime()) / (1000 * 60 * 60 * 24)) + 1;
-              v_ilDni.setValue("Ilośćć dni: " + ilDniInt);
+              v_ilDni.setValue("Ilość dni: " + ilDniInt);
             }
         } );
         

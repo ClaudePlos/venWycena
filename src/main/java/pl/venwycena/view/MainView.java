@@ -21,6 +21,7 @@ import com.vaadin.ui.Table;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import pl.venwycena.MyUI;
@@ -92,6 +93,7 @@ public class MainView extends CustomComponent implements View {
         tab.addContainerProperty("Wycena", String.class, null);
         tab.addContainerProperty("Data Wyceny",  String.class, null);
         tab.addContainerProperty("Data Obowiązywania",  String.class, null);
+        tab.addContainerProperty("Kto Zamawia",  String.class, null);
         tab.addContainerProperty("wycena",  Wyceny.class, null);
         tab.setColumnWidth("wycena", 0);
         tab.setSelectable(true);
@@ -99,14 +101,23 @@ public class MainView extends CustomComponent implements View {
         
         if ( MyUI.zalogowany != null )
         {
-            List<Wyceny> wyceny = uf.allWycenyUsera(MyUI.zalogowany.getUId());
+            List<Wyceny> wyceny = new ArrayList<Wyceny>();
+            
+            if ( MyUI.zalogowany.getULogin().equals("wycena@vendiservis.pl")){
+                wyceny = uf.allWycenyAdmin();
+            }else{
+                wyceny = uf.allWycenyUsera(MyUI.zalogowany.getUId());
+            }
+               
+            
 
             for ( Wyceny wyc : wyceny )
             {
                 tab.addItem( new Object[] { wyc.getWNazwa()
                         , formater.format( wyc.getWDataWyceny() ) 
                         , formater.format( wyc.getWDataObowiazywania() )
-                        , wyc
+                        , wyc.getMailKtoZamawia()
+                        , wyc                    
                 },  i);
                 i++;
             }

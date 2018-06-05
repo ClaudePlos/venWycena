@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
+import javax.ejb.EJB;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -34,6 +35,9 @@ public class WycenaFacade {
     
     private EntityManager em;
     
+    @EJB
+    UsersFacade uf = new UsersFacade();
+    
     public WycenaFacade() {
         em = emfInstance.createEntityManager();
     }
@@ -42,7 +46,7 @@ public class WycenaFacade {
     public List<Wyceny> allWycenyUsera( int user_id )
     {
         
-        Query query =  em.createNativeQuery("select * from wyceny where w_user_id = " + user_id );
+        Query query =  em.createNativeQuery("select * from wyceny where w_user_id = " + user_id + "  order by w_data_wyceny desc" );
         
         List<Object[]> ob = query.getResultList();
          
@@ -58,10 +62,35 @@ public class WycenaFacade {
            w.setWNazwa( (String) o[4] );
            wyceny.add(w);
         }
-                
-        
+                     
         return wyceny;
     }
+    
+    public List<Wyceny> allWycenyAdmin()
+    {
+        
+        Query query =  em.createNativeQuery("select * from wyceny order by w_data_wyceny desc");
+        
+        List<Object[]> ob = query.getResultList();
+         
+        List<Wyceny> wyceny =  new ArrayList<Wyceny>();
+        
+        for ( Object[] o : ob )
+        {
+           Wyceny w = new Wyceny();
+           w.setWId( (Integer) o[0] );
+           w.setWUserId( (Integer) o[1] );
+           w.setWDataWyceny( (Date) o[2] );
+           w.setWDataObowiazywania((Date) o[3] );
+           w.setWNazwa( (String) o[4] );
+           Users user = uf.getUser( w.getWUserId() );
+           w.setMailKtoZamawia( user.getUMail() );
+           wyceny.add(w);
+        }
+                     
+        return wyceny;
+    }
+    
     
 
     public Wyceny zapiszWycene( Wyceny entry, WycenyDane wycDane )

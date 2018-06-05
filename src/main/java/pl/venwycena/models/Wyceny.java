@@ -16,6 +16,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -45,6 +46,9 @@ public class Wyceny implements Serializable {
     @Size(max = 200)
     @Column(name = "w_nazwa")
     private String wNazwa;
+    
+    @Transient
+    private String mailKtoZamawia;
 
     public Wyceny() {
     }
@@ -92,6 +96,16 @@ public class Wyceny implements Serializable {
     public void setWNazwa(String wNazwa) {
         this.wNazwa = wNazwa;
     }
+
+    public String getMailKtoZamawia() {
+        return mailKtoZamawia;
+    }
+
+    public void setMailKtoZamawia(String mailKtoZamawia) {
+        this.mailKtoZamawia = mailKtoZamawia;
+    }
+    
+    
 
     @Override
     public int hashCode() {

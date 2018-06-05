@@ -45,6 +45,13 @@ public class UsersFacade  {
         return allUsers;
     }
     
+    public Users getUser( Integer uId )
+    {
+        Users user = (Users) em.createQuery("from Users u WHERE u.uId = :uId").setParameter("uId", uId).getSingleResult();
+        
+        return user;
+    }
+    
     public Users sprawdzenieLogowania( Users user )
     {
         Users us = new Users();
