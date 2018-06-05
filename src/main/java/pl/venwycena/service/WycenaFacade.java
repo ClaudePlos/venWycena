@@ -14,6 +14,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 import javax.ejb.EJB;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -35,7 +36,7 @@ public class WycenaFacade {
     
     private EntityManager em;
     
-    @EJB
+    @Inject
     UsersFacade uf = new UsersFacade();
     
     public WycenaFacade() {

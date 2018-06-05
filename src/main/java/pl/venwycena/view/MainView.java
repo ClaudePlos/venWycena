@@ -27,6 +27,7 @@ import javax.ejb.EJB;
 import pl.venwycena.MyUI;
 import pl.venwycena.models.Wyceny;
 import pl.venwycena.models.WycenyDane;
+import pl.venwycena.service.UsersFacade;
 import pl.venwycena.service.WycenaFacade;
 
 
@@ -42,7 +43,10 @@ public class MainView extends CustomComponent implements View {
     Table tab;
     
     @EJB
-    WycenaFacade uf = new WycenaFacade();
+    WycenaFacade wf = new WycenaFacade();
+    
+    @EJB
+    UsersFacade uf = new UsersFacade();
     
     WycenaRightView wrv;
     
@@ -104,9 +108,9 @@ public class MainView extends CustomComponent implements View {
             List<Wyceny> wyceny = new ArrayList<Wyceny>();
             
             if ( MyUI.zalogowany.getULogin().equals("wycena@vendiservis.pl")){
-                wyceny = uf.allWycenyAdmin();
+                wyceny = wf.allWycenyAdmin();
             }else{
-                wyceny = uf.allWycenyUsera(MyUI.zalogowany.getUId());
+                wyceny = wf.allWycenyUsera(MyUI.zalogowany.getUId());
             }
                
             
@@ -192,7 +196,7 @@ public class MainView extends CustomComponent implements View {
                                     if (contactId != null)
                                     {
                                        Wyceny wyc = (Wyceny) tab.getItem(contactId).getItemProperty("wycena").getValue(); 
-                                       WycenyDane wd = (WycenyDane) uf.pobierzWycenyDane( wyc.getWId() ); 
+                                       WycenyDane wd = (WycenyDane) wf.pobierzWycenyDane( wyc.getWId() ); 
                                        
                                        wrv.odswiezDane(wd);
 
