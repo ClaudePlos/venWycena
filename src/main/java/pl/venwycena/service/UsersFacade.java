@@ -45,9 +45,17 @@ public class UsersFacade  {
         return allUsers;
     }
     
-    public Users getUser( Integer uId )
+    public Users getUser( int uId )
     {
-        Users user = (Users) em.createQuery("from Users u WHERE u.uId = :uId").setParameter("uId", uId).getSingleResult();
+        Users user = new Users();
+        Query query =  em.createNativeQuery("SELECT * FROM users WHERE u_id = " + uId);
+        
+        Object[] us1 = (Object[]) query.getSingleResult();
+           
+          user.setUId( (Integer) us1[0] ); 
+          user.setULogin( (String) us1[1]); 
+          user.setUPassword((String) us1[2]); 
+          user.setUMail((String) us1[3]);
         
         return user;
     }

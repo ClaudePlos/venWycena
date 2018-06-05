@@ -24,6 +24,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
+import javax.inject.Inject;
 import pl.venwycena.MyUI;
 import pl.venwycena.models.Wyceny;
 import pl.venwycena.models.WycenyDane;
@@ -45,7 +46,7 @@ public class MainView extends CustomComponent implements View {
     @EJB
     WycenaFacade wf = new WycenaFacade();
     
-    @EJB
+    @Inject
     UsersFacade uf = new UsersFacade();
     
     WycenaRightView wrv;
