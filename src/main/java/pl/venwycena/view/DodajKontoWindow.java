@@ -122,7 +122,9 @@ public class DodajKontoWindow extends Window {
 
                     // zamykam
                     close();
-                    Notification.show("Możesz zalogować się do aplikacji podając dane wypełnione w formularzu.",Notification.Type.HUMANIZED_MESSAGE); 
+                    Notification.show("Udana rejestracja."
+                            , "Możesz zalogować się do aplikacji podając dane wypełnione w formularzu."
+                            , Notification.Type.WARNING_MESSAGE); 
                 }
                     
             }
