@@ -122,7 +122,7 @@ public class DodajKontoWindow extends Window {
 
                     // zamykam
                     close();
-                    Notification.show("Zaloguj się na maila aby dokończyć rejestrację!",Notification.Type.ERROR_MESSAGE); 
+                    Notification.show("Możesz zalogować się do aplikacji podając dane wypełnione w formularzu.",Notification.Type.HUMANIZED_MESSAGE); 
                 }
                     
             }
