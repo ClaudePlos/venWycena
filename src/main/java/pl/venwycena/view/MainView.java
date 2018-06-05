@@ -46,7 +46,7 @@ public class MainView extends CustomComponent implements View {
     @EJB
     WycenaFacade wf = new WycenaFacade();
     
-    @Inject
+    @EJB
     UsersFacade uf = new UsersFacade();
     
     WycenaRightView wrv;
