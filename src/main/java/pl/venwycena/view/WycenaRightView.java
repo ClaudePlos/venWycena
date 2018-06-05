@@ -303,7 +303,7 @@ public class WycenaRightView extends FormLayout {
                 + (Long.parseLong( wd.getD02().toString() ) * 100) 
                 );        
         //0.
-        d00.setValue( "Sugerowana waroæ us³ugi: " 
+        d00.setValue( "Sugerowana warotosc uslugi: " 
                 + wycena.toString()
                 + " PLN" );
         
