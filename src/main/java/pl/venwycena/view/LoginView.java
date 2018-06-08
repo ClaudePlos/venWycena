@@ -93,7 +93,9 @@ public class LoginView extends CustomComponent implements View,
         Label labSpacja = new Label(" ");
         
         Label labUE = new Label("Projekt współfinansowany ze środków Europejskiego Funduszu Rozwoju Regionalnego w ramach Programu Operacyjnego Innowacyjna Gospodarka");
-
+        Label labUEProjeName01 = new Label("Tytuł projektu: Stworzenie elektronicznej platformy B2B do obsługi procesów dostaw i zamówień w ramach działalności cateringowej prowadzonej przez spółkę Vendi Servis");
+        Label labUEProjeName02 = new Label("Numer Umowy o dofinasowanie:");
+        Label labUEProjeName03 = new Label("UDA-POIG.08.02.00--14-331/13-00");
         
         VerticalLayout logo = new VerticalLayout( imgLogoVendi, fields, labSpacja, labUE, imgLogoUE );
         logo.setComponentAlignment(imgLogoVendi, Alignment.MIDDLE_CENTER);
@@ -101,6 +103,9 @@ public class LoginView extends CustomComponent implements View,
         logo.setComponentAlignment(labSpacja, Alignment.MIDDLE_CENTER);
         logo.setComponentAlignment(labSpacja, Alignment.MIDDLE_CENTER);
         logo.setComponentAlignment(labUE, Alignment.MIDDLE_CENTER);
+        logo.setComponentAlignment(labUEProjeName01, Alignment.MIDDLE_CENTER);
+        logo.setComponentAlignment(labUEProjeName02, Alignment.MIDDLE_CENTER);
+        logo.setComponentAlignment(labUEProjeName03, Alignment.MIDDLE_CENTER);
         logo.setComponentAlignment(imgLogoUE, Alignment.MIDDLE_CENTER);
         logo.setSpacing(true);
         logo.setSizeUndefined();
