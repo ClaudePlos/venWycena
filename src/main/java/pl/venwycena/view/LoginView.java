@@ -97,7 +97,7 @@ public class LoginView extends CustomComponent implements View,
         Label labUEProjeName02 = new Label("Numer Umowy o dofinasowanie:");
         Label labUEProjeName03 = new Label("UDA-POIG.08.02.00--14-331/13-00");
         
-        VerticalLayout logo = new VerticalLayout( imgLogoVendi, fields, labSpacja, labUE, imgLogoUE );
+        VerticalLayout logo = new VerticalLayout( imgLogoVendi, fields, labSpacja, labUE, labUEProjeName01, labUEProjeName02, labUEProjeName03, imgLogoUE );
         logo.setComponentAlignment(imgLogoVendi, Alignment.MIDDLE_CENTER);
         logo.setComponentAlignment(fields, Alignment.MIDDLE_CENTER);
         logo.setComponentAlignment(labSpacja, Alignment.MIDDLE_CENTER);
