@@ -82,6 +82,19 @@ public class MainView extends CustomComponent implements View {
         }
     });
     
+    Button butPobDiete = new Button("Pobierz dietę", new Button.ClickListener() {
+
+        @Override
+        public void buttonClick(Button.ClickEvent event) {
+
+            // "Logout" the user
+            //getSession().setAttribute("user", null);
+
+            // Refresh this view, should redirect to login view
+            getUI().getNavigator().navigateTo(DietaView.NAME);
+        }
+    });
+    
 
 
     public MainView() {
@@ -169,7 +182,7 @@ public class MainView extends CustomComponent implements View {
        
         
         
-        setCompositionRoot(new CssLayout(text, logout, butWycena, form ));
+        setCompositionRoot(new CssLayout(text, logout, butWycena, butPobDiete, form ));
         
     }
 
