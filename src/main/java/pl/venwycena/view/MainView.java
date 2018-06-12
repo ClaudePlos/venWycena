@@ -11,11 +11,13 @@ import com.vaadin.data.Property.ValueChangeEvent;
 import com.vaadin.event.ItemClickEvent;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
+import com.vaadin.server.ThemeResource;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.CustomComponent;
 import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.HorizontalSplitPanel;
+import com.vaadin.ui.Image;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Table;
 import com.vaadin.ui.UI;
@@ -91,7 +93,13 @@ public class MainView extends CustomComponent implements View {
             //getSession().setAttribute("user", null);
 
             // Refresh this view, should redirect to login view
-            getUI().getNavigator().navigateTo(DietaView.NAME);
+            //getUI().getNavigator().navigateTo(DietaView.NAME);
+            
+            Image imgLogoUE = new Image();
+            imgLogoUE.setSource(new ThemeResource("dol.jpg"));
+            
+             
+            
         }
     });
     

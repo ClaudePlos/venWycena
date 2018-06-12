@@ -6,6 +6,7 @@
 package pl.venwycena.view;
 
 import com.vaadin.data.fieldgroup.FieldGroup;
+import com.vaadin.ui.Button;
 import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
@@ -291,6 +292,22 @@ public class WycenaRightView extends FormLayout {
         opWlasnwJadlospisy.setMultiSelect(true);
         h02.addComponent(opWlasnwJadlospisy);
         h02.addComponent(new Label("<br>",Label.CONTENT_XHTML));
+        
+        //21
+        
+         Button butWycena = new Button("Przekaż do działu produkcji", new Button.ClickListener() {
+                @Override
+                public void buttonClick(Button.ClickEvent event) {
+
+                    // "Logout" the user
+                    //getSession().setAttribute("user", null);
+
+                    // Refresh this view, should redirect to login view
+                    //getUI().getNavigator().navigateTo(WycenaView.NAME);
+                }
+            });
+         
+         h02.addComponent(butWycena);
         
     }
     
@@ -636,5 +653,9 @@ public class WycenaRightView extends FormLayout {
         
         
     }
+    
+    
+   
+    
     
 }
