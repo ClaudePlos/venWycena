@@ -11,7 +11,11 @@ import com.vaadin.data.Property.ValueChangeEvent;
 import com.vaadin.event.ItemClickEvent;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
+import com.vaadin.server.ExternalResource;
+import com.vaadin.server.StreamResource;
+import com.vaadin.server.StreamResource.StreamSource;
 import com.vaadin.server.ThemeResource;
+import com.vaadin.ui.BrowserFrame;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.CustomComponent;
@@ -22,6 +26,7 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.Table;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.Window;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +49,7 @@ public class MainView extends CustomComponent implements View {
 
     Label text = new Label();
     Table tab;
+    Table tabOferty;
     
     @EJB
     WycenaFacade wf = new WycenaFacade();
@@ -95,11 +101,31 @@ public class MainView extends CustomComponent implements View {
             // Refresh this view, should redirect to login view
             //getUI().getNavigator().navigateTo(DietaView.NAME);
             
-            Image imgLogoUE = new Image();
-            imgLogoUE.setSource(new ThemeResource("dol.jpg"));
+//            Image imgLogoUE = new Image();
+//            imgLogoUE.setSource(new ThemeResource("dol.jpg"));
+//            
+            Window window = new Window();
+            window.setWidth("90%");
+            window.setHeight("90%");
+            BrowserFrame e = new BrowserFrame("PDF File", new ExternalResource("https://i2.naprzod.pl/podstawa_kalorie.pdf"));
+            e.setWidth("100%");
+            e.setHeight("100%");
+            window.setContent(e);
+            window.center();
+            window.setModal(true);
+            UI.getCurrent().addWindow(window);
+          
             
-             
-            
+        }
+    });
+    
+    
+    Button butOferty = new Button("Oferty", new Button.ClickListener() {
+
+        @Override
+        public void buttonClick(Button.ClickEvent event) {
+            // Refresh this view, should redirect to login view
+            getUI().getNavigator().navigateTo(OfertyView.NAME);
         }
     });
     
@@ -123,6 +149,11 @@ public class MainView extends CustomComponent implements View {
         tab.addContainerProperty("wycena",  Wyceny.class, null);
         tab.setColumnWidth("wycena", 0);
         tab.setSelectable(true);
+        
+        
+        tabOferty = new Table("Twoje oferty:");
+        tabOferty.addContainerProperty("Numer oferty",  String.class, null);
+        tabOferty.addContainerProperty("Termin do",  String.class, null);
         
         
         if ( MyUI.zalogowany != null )
@@ -159,6 +190,7 @@ public class MainView extends CustomComponent implements View {
         VerticalLayout rightLayout = new VerticalLayout();
         
         leftLayout.addComponent(tab);
+        leftLayout.addComponent(tabOferty);
         rightLayout.addComponent(wrv);
         
         splitPanel.addComponent(leftLayout);
@@ -190,7 +222,7 @@ public class MainView extends CustomComponent implements View {
        
         
         
-        setCompositionRoot(new CssLayout(text, logout, butWycena, butPobDiete, form ));
+        setCompositionRoot(new CssLayout(text, logout, butWycena, butPobDiete, butOferty, form ));
         
     }
 
