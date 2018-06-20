@@ -9,6 +9,7 @@ package pl.venwycena.view;
 
 import com.vaadin.data.validator.AbstractValidator;
 import com.vaadin.data.validator.EmailValidator;
+import com.vaadin.event.ShortcutAction;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.server.FontAwesome;
@@ -80,6 +81,7 @@ public class LoginView extends CustomComponent implements View,
         // Create login button
         loginButton = new Button("Login", this);
         loginButton.setIcon(FontAwesome.CHECK);
+        loginButton.setClickShortcut(ShortcutAction.KeyCode.ENTER);
         zarejestrujButton = new Button("Zarejestruj się", this);
 
         // Add both to a 

@@ -30,6 +30,7 @@ import com.vaadin.ui.Window;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import javax.ejb.EJB;
 import javax.inject.Inject;
 import pl.venwycena.MyUI;
@@ -103,19 +104,24 @@ public class MainView extends CustomComponent implements View {
             
 //            Image imgLogoUE = new Image();
 //            imgLogoUE.setSource(new ThemeResource("dol.jpg"));
-//            
+
+            String plik = "podstawa_kalorie";
+            Random generator = new Random();
+            int liczbaLosowa = generator.nextInt(4)+1;
+            
+          
             Window window = new Window();
             window.setWidth("90%");
             window.setHeight("90%");
-            BrowserFrame e = new BrowserFrame("PDF File", new ExternalResource("https://i2.naprzod.pl/podstawa_kalorie.pdf"));
+            String url = "https://i2.naprzod.pl/"+plik+liczbaLosowa+".pdf";
+            //System.out.print(url);
+            BrowserFrame e = new BrowserFrame("PDF File", new ExternalResource(url));
             e.setWidth("100%");
             e.setHeight("100%");
             window.setContent(e);
             window.center();
             window.setModal(true);
-            UI.getCurrent().addWindow(window);
-          
-            
+            UI.getCurrent().addWindow(window);  
         }
     });
     
